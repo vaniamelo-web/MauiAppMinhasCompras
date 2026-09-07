@@ -15,7 +15,7 @@ namespace MauiAppMinhasCompras
                 if (_db == null)
                 {
                     string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "banco_sqlite_compras.bd3");
-                    _db = new SQLiteDatabaseHelper(".... db3");
+                    _db = new SQLiteDatabaseHelper(path);
                 }
                 return _db;
             }
