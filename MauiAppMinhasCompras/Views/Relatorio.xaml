@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMinhasCompras.Views.Relatorio"
+             Title="Relatório">
+
+    <Grid RowSpacing="15" ColumnSpacing="15" Padding="15" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*">
+
+        <Label Grid.Row="0" Text="Relatório de Produtos" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+        <Label Grid.Row="1" Text="Data inicial:"/>
+        <DatePicker Grid.Row="2" x:Name="dtpck_inicial" Format="dd/MM/yyyy"/>
+        <Label Grid.Row="3" Text="Data final:"/>
+        <DatePicker Grid.Row="4" x:Name="dtpck_final" Format="dd/MM/yyyy"/>
+
+        <Button Grid.Row="5" Text="Pesquisar" Clicked="Button_Clicked"/>
+
+        <ListView Grid.Row="6" x:Name="lista_relatorio">
+            <ListView.Header>
+                <Grid ColumnDefinitions="30, 80, 70, 50, 70, 100" BackgroundColor="#DCC6EE">
+                    <Label Grid.Column="0" Text="ID" Padding="5" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="1" Text="Descrição" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="2" Text="Preço" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="3" Text="Qnt" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="4" Text="Total" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="5" Text="Data" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+
+                </Grid>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <Grid ColumnDefinitions="30, 80, 70, 50, 70, 100">
+                            <Label Grid.Column="0" Text="{Binding Id}" Padding="5" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="1" Text="{Binding Descricao}" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="2" Text="{Binding Preco, StringFormat='{}{0:c}'}" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="3" Text="{Binding Quantidade}" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="4" Text="{Binding Total, StringFormat='{}{0:c}'}" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="5" Text="{Binding DataCadastro, StringFormat='{0:dd/MM/yyyy}'}" VerticalTextAlignment="Center"/>
+
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+</ContentPage>

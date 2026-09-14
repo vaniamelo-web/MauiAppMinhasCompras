@@ -47,5 +47,13 @@ namespace MauiAppMinhasCompras.Helpers
 
             return _conn.QueryAsync<Produto>(sql);
         }
+
+        //Mostrar as datas no relatório
+        public Task<List<Produto>> GetByDate(DateTime inicio, DateTime fim)
+        {
+            string sql = "SELECT * FROM Produto WHERE DataCadastro >= ? AND DataCadastro <= ?";
+
+            return _conn.QueryAsync<Produto>(sql, inicio, fim);
+        }
     }
 }

@@ -133,4 +133,16 @@ public partial class ListaProduto : ContentPage
             lst_produtos.IsRefreshing = false;
         }
     }
+
+    private async void ToolbarItem_Clicked_2(object sender, EventArgs e)
+    {
+        try
+        {
+            await Navigation.PushAsync(new Relatorio());
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Ops", ex.Message, "Ok");
+        }
+    }
 }
