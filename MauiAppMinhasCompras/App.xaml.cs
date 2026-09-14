@@ -1,6 +1,7 @@
 ﻿using MauiAppMinhasCompras.Helpers;
 using MauiAppMinhasCompras.Views;
 using Microsoft.Extensions.DependencyInjection;
+using System.Globalization;
 
 namespace MauiAppMinhasCompras
 {
@@ -24,6 +25,8 @@ namespace MauiAppMinhasCompras
         public App()
         {
             InitializeComponent();
+
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
